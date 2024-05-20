@@ -49,6 +49,11 @@ const pool = new Pool({
   port: 5432,
 });
 
+app.get(`/metro`, (req, res)=>{
+  console.log( "ugualmente" )
+
+  res.send("make it boom")
+})
 
 app.get(`/vedo`, (req, res)=> {
 
