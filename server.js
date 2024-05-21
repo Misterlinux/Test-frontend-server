@@ -2,6 +2,7 @@ const express = require('express');
 //We import the app MODULE for the utilities with the file path.
 const app = express();
 
+const PORT = process.env.PORT || 3030;
 //If we needed to access the req.coockie we would import this module
 //const cookieParser = require('cookie-parser');
 //app.use(cookieParser());
@@ -50,7 +51,7 @@ const pool = new Pool({
 });
 
 app.get(`/metro`, (req, res)=>{
-  console.log( "ugualmente" )
+  console.log( "metro balling" )
 
   res.send("make it boom")
 })
@@ -111,4 +112,4 @@ app.post(`/togli`, async (req, res)=>{
 
 
 //listen() sets the localhost: endpoint 
-app.listen(3000, () => console.log("Server is up and running"))
+app.listen(PORT, () => console.log("Server is up and running"))
