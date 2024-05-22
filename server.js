@@ -45,7 +45,7 @@ const { Pool } = require("pg");
 
 //Instead of setting the properties one by one we use a single URL
 //provided by the render page, and set the pg with it 
-const connectionString = 'postgresql://username:password@hostname:port/database_name';
+const connectionString = 'postgres://dbeaver_user:orhJ27kIAU9MEMW6RDdO4Yv4LBM91XZ0@dpg-cp6s87q0si5c73ajhufg-a/dbeaver';
 
 //postgres://dbeaver_user:orhJ27kIAU9MEMW6RDdO4Yv4LBM91XZ0@dpg-cp6s87q0si5c73ajhufg-a/dbeaver
 //'postgresql://username:password@hostname:port/database_name';
