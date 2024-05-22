@@ -132,4 +132,4 @@ app.post(`/togli`, async (req, res)=>{
 
 
 //listen() sets the localhost: endpoint 
-app.listen(PORT, () => console.log("Server is up and running"))
+app.listen(PORT, () => console.log(`Server is up and running ${PORT}`))
