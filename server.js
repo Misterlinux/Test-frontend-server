@@ -42,6 +42,20 @@ app.use(express.json())
 
 //We install the postSQL client pg
 const { Pool } = require("pg");
+
+//Instead of setting the properties one by one we use a single URL
+//provided by the render page, and set the pg with it 
+const connectionString = 'postgresql://username:password@hostname:port/database_name';
+
+//postgres://dbeaver_user:orhJ27kIAU9MEMW6RDdO4Yv4LBM91XZ0@dpg-cp6s87q0si5c73ajhufg-a/dbeaver
+//'postgresql://username:password@hostname:port/database_name';
+
+const pool = new Pool({
+  connectionString,
+});
+
+
+/*
 const pool = new Pool({
   user: "postgres",
   host: "localhost",
@@ -49,8 +63,14 @@ const pool = new Pool({
   password: "mrlzarate",
   port: 5432,
 });
+*/
+app.get("/", (req, res)=> {
+  console.log("why don't we get the first")
 
-app.get(`/metro`, (req, res)=>{
+  res.send("We try to connect")
+})
+
+app.get(`/metro`, (req, res)=> {
   console.log( "metro balling" )
 
   res.send("make it boom")
