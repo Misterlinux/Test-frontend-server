@@ -2,6 +2,7 @@ const express = require('express');
 //We import the app MODULE for the utilities with the file path.
 const app = express();
 
+require('dotenv').config();
 const PORT = process.env.PORT || 3030;
 //If we needed to access the req.coockie we would import this module
 //const cookieParser = require('cookie-parser');
@@ -43,9 +44,17 @@ app.use(express.json())
 //We install the postSQL client pg
 const { Pool } = require("pg");
 
+if( process.env.DATABASE_PASSWORD ){
+  console.log( process.env.DATABASE_PASSWORD )
+}else{
+  console.log("There is no process.env here")
+}
+
+
 //Instead of setting the properties one by one we use a single URL
 //provided by the render page, and set the pg with it 
-const connectionString = 'postgres://dbeaver_user:orhJ27kIAU9MEMW6RDdO4Yv4LBM91XZ0@dpg-cp6s87q0si5c73ajhufg-a/dbeaver';
+const connectionString = 
+  `postgres://dbeaver_user:${process.env.DATABASE_PASSWORD}@dpg-cp6s87q0si5c73ajhufg-a/dbeaver`;
 
 //postgres://dbeaver_user:orhJ27kIAU9MEMW6RDdO4Yv4LBM91XZ0@dpg-cp6s87q0si5c73ajhufg-a/dbeaver
 //'postgresql://username:password@hostname:port/database_name';
