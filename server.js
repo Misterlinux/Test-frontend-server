@@ -44,13 +44,6 @@ app.use(express.json())
 //We install the postSQL client pg
 const { Pool } = require("pg");
 
-if( process.env.DATABASE_PASSWORD ){
-  console.log( process.env.DATABASE_PASSWORD )
-}else{
-  console.log("There is no process.env here")
-}
-
-
 //Instead of setting the properties one by one we use a single URL
 //provided by the render page, and set the pg with it 
 const connectionString = 
