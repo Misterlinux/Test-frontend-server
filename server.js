@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 require('dotenv').config();
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 3020;
 //If we needed to access the req.coockie we would import this module
 //const cookieParser = require('cookie-parser');
 //app.use(cookieParser());
@@ -13,6 +13,7 @@ const PORT = process.env.PORT || 3030;
 
 //It seems we need the build to be connected ot the server
 //we create a path for the React.js to be visible
+
 /*
 We import the path MODULE, for the utilities with the file path, 
 we app.use() to mount middleware, we can access the request object
@@ -44,18 +45,12 @@ app.use(express.json())
 //We install the postSQL client pg
 const { Pool } = require("pg");
 
-//Instead of setting the properties one by one we use a single URL
-//provided by the render page, and set the pg with it 
 const connectionString = 
   `postgres://dbeaver_user:${process.env.DATABASE_PASSWORD}@dpg-cp6s87q0si5c73ajhufg-a/dbeaver`;
-
-//postgres://dbeaver_user:orhJ27kIAU9MEMW6RDdO4Yv4LBM91XZ0@dpg-cp6s87q0si5c73ajhufg-a/dbeaver
-//'postgresql://username:password@hostname:port/database_name';
 
 const pool = new Pool({
   connectionString,
 });
-
 
 /*
 const pool = new Pool({
@@ -66,10 +61,11 @@ const pool = new Pool({
   port: 5432,
 });
 */
-app.get("/", (req, res)=> {
-  console.log("why don't we get the first")
 
-  res.send("We try to connect")
+app.get("/", (req, res)=> {
+  console.log( PORT )
+
+  res.send( PORT )
 })
 
 app.get(`/metro`, (req, res)=> {
