@@ -61,11 +61,12 @@ const pool = new Pool({
   port: 5432,
 });
 */
+let HOST = process.env.HOST
 
 app.get("/", (req, res)=> {
   console.log( PORT )
 
-  res.send( PORT )
+  res.send( HOST + PORT )
 })
 
 app.get(`/metro`, (req, res)=> {
